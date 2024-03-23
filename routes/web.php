@@ -18,6 +18,9 @@ use App\Http\Controllers\ReserveController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('layout', function () {
+    return view('layout');
+})->name('layout');
 Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
 
 Route::get('/classtable', [ClassTableController::class, 'classtable'])->name('classtable.classtable');
