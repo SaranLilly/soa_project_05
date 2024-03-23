@@ -14,7 +14,20 @@
     <title>ClassTable</title>
 </head>
 <body>
-    <p>spam error</p>
+    <table class="date">
+        <thead>
+          <tr>
+            <td><a button type='button' class='btn btn-secondary' href="">จันทร์</a></td>
+            <td><a button type='button' class='btn btn-secondary' href="">อังคาร</a></td>
+            <td><a button type='button' class='btn btn-secondary' href="">พุธ</a></td>
+            <td><a button type='button' class='btn btn-secondary' href="">พฤหัสบดี</a></td>
+            <td><a button type='button' class='btn btn-secondary' href="">ศุกร์</a></td>
+            <td><a button type='button' class='btn btn-secondary' href="">เสาร์</a></td>
+            <td><a button type='button' class='btn btn-secondary' href="">อาทิตย์</a></td>
+          </tr>
+        </thead>
+      </table>
+
     <table class="table">
         <thead>
           <tr>
