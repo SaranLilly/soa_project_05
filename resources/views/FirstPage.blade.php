@@ -1,3 +1,6 @@
+@extends('layout')
+@section('title', 'หน้าแรก')
+@section('content')
 <!doctype html>
 <html lang="en">
   <head>
@@ -23,13 +26,13 @@
         <tbody>
             @for ($i = 0; $i < 3; $i++)
             <tr>
-                @if ($i == 1)
-                <th><img src="data:image/png;base64,{{ base64_encode($picture) }}" alt="Pixel Image"></th>
-                @elseif ($i == 2)
+                {{-- @if ($i == 1) --}}
+                <th><img width="100" height="100" src="data:image/png;base64,{{ base64_encode($picture[$i]) }}" alt="Pixel Image"></th>
+                {{-- @elseif ($i == 2)
                 <th><img src="data:image/png;base64,{{ base64_encode($picture1) }}" alt="Pixel Image"></th>
                 @else
                 <th><img src="data:image/png;base64,{{ base64_encode($picture2) }}" alt="Pixel Image"></th>
-                @endif
+                @endif --}}
                 <th>{{ $title[$i]}}</th>
                 <th>{{ $detail[$i]}}</th>
             </tr> 
@@ -38,3 +41,4 @@
       </table>
   </body>
 </html>
+@endsection

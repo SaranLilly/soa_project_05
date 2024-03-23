@@ -15,15 +15,26 @@ class FirstPageController extends Controller
         //echo "asas";
         //$picture =['../assets/images/amongus.png','cena.png','ku.png'];
         //$imagePath = public_path('\assets\images\amongus.png','\assets\images\cena.png','\assets\images\ku.png');
-        $imagePath = public_path('\assets\images\amongus.png');
-        $picture = file_get_contents($imagePath);
+        // $imagePath = public_path('\assets\images\amongus.png');
+        // $picture = file_get_contents($imagePath);
 
-        $imagePath1 = public_path('\assets\images\cena.png');
-        $picture1 = file_get_contents($imagePath1);
+        // $imagePath1 = public_path('\assets\images\cena.png');
+        // $picture1 = file_get_contents($imagePath1);
 
-        $imagePath2 = public_path('\assets\images\ku.png');
-        $picture2 = file_get_contents($imagePath2);
+        // $imagePath2 = public_path('\assets\images\ku.png');
+        // $picture2 = file_get_contents($imagePath2);
+        $imagePaths = [
+            public_path('\assets\images\amongus.png'),
+            public_path('\assets\images\cena.png'),
+            public_path('\assets\images\ku.png')
+        ];
         
-        return view('FirstPage',['title'=>$title,'detail'=>$detail,'picture'=>$picture,'picture1'=>$picture1,'picture2'=>$picture2]);
+        $picture = [];
+        foreach ($imagePaths as $path) {
+            $picture[] = file_get_contents($path);
+        }
+        
+        return view('FirstPage',['title'=>$title,'detail'=>$detail,'picture'=>$picture]);
+        //return view('FirstPage',['title'=>$title,'detail'=>$detail,'picture'=>$picture,'picture1'=>$picture1,'picture2'=>$picture2]);
     }
 }
