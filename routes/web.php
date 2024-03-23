@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReserveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/profile', function () {
     return view('profile.index');
 });
-// Route::get('/empOverall', [empOverallController::class, 'index'])->name('empOverall.index');
+
+Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
