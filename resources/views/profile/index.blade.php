@@ -12,18 +12,16 @@
 </head>
 <body>
     <form>
-        ชื่อ: <input type="text" name="firstname"><br>
-        นามสกุล: <input type="text" name="lastname"><br>
-        เบอร์: <input type="text" name="firstname"><br>
-        อีเมล: <input type="text" name="lastname"><br>
-        ระดับสมาชิก: <input type="text" name="firstname"><br>
-        วันที่สมัคร: <input type="text" name="lastname"><br>
-        วันหมดอายุ: <input type="text" name="firstname"><br>
-        หมายเหตุ: <input type="text" name="lastname"><br>
-
-
-
-
-        </form>
+        ชื่อ: <span>{{ $name[0] }}</span><br>
+        นามสกุล: <span>{{ $surname[0] }}</span><br>
+        เบอร์: <span>{{ $tel[0] }}</span><br>
+        อีเมล: <span>{{ $email[0] }}</span><br>
+        ระดับสมาชิก: <span>{{ $member_level[0] }}</span><br>
+        วันที่สมัคร: <span>{{ $date_order[0] }}</span><br>
+        วันหมดอายุ: <span>{{ $date_exp[0] }}</span><br>
+        หมายเหตุ: <span>{{ $note[0] }}</span><br>
+    </form>
+    
+    
 </body>
 </html>
