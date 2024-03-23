@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClassTableController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReserveController;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
+
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+
+Route::get('/classtable', [ClassTableController::class, 'classtable'])->name('classtable.classtable');
