@@ -14,7 +14,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
   </head>
-  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+  <body >
     <table class="table">
         <thead>
           <tr>
