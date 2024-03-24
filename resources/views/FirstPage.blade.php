@@ -24,8 +24,12 @@
           </tr>
         </thead>
         <tbody>
-            @for ($i = 0; $i < 3; $i++)
-            <tr>
+          {{-- @foreach($ClassExercise as $cex){
+            {{ $cex->name "<br>";}}
+          }
+          @endforeach --}}
+            {{-- @for ($i = 0; $i < 3; $i++)
+            <tr> --}}
                 {{-- @if ($i == 1) --}}
                 {{-- <th><img width="100" height="100" src="data:image/png;base64,{{ base64_encode($picture[$i]) }}" alt="Pixel Image"></th> --}}
                 {{-- @elseif ($i == 2)
@@ -33,10 +37,10 @@
                 @else
                 <th><img src="data:image/png;base64,{{ base64_encode($picture2) }}" alt="Pixel Image"></th>
                 @endif --}}
-                <th>{{ $title[$i]}}</th>
+                {{-- <th>{{ $title[$i]}}</th>
                 <th>{{ $detail[$i]}}</th>
             </tr> 
-            @endfor       
+            @endfor        --}}
         </tbody>
       </table>
   </body>

@@ -47,11 +47,11 @@ class FirstPageController extends Controller
          //dd($ClassExercise);
         // dd(gettype($userList));
         // dd($userList); 
-        // foreach($userList as $user){
-        //     echo  $user->name."  ".$user->tel."<br>";
-        // }
-        return view('FirstPage',compact('ClassExercise'));
-    }
+          foreach($ClassExercise as $classex){
+            echo  $classex->name."  ".$classex->detail."<br>";
+         }
+        //return view('FirstPage',compact('ClassExercise'));
+    }   
     function testPost()
     {
         $response = Http::post('http://localhost:8096/soa_project_5/rest/services/users', [
