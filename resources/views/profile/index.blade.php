@@ -1,35 +1,32 @@
 @extends('layout')
+
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>profile</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <div class="mb-3">
-                    <form>
-                        <div class="mb-3">
-                            ชื่อ: <span>{{ $name[0] }}</span><br>
-                            นามสกุล: <span>{{ $surname[0] }}</span><br>
-                            เบอร์: <span>{{ $tel[0] }}</span><br>
-                            อีเมล: <span>{{ $email[0] }}</span><br>
-                            ระดับสมาชิก: <span>{{ $member_level[0] }}</span><br>
-                            วันที่สมัคร: <span>{{ $date_order[0] }}</span><br>
-                            วันหมดอายุ: <span>{{ $date_exp[0] }}</span><br>
-                            หมายเหตุ: <span>{{ $note[0] }}</span><br>
-                        </div>
-                    </form>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">โปรไฟล์ผู้ใช้</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">ชื่อ: <span>{{ $profile[0]->name }}</span></li>
+                        <li class="list-group-item">นามสกุล: <span>{{ $profile[0]->surname }}</span></li>
+                        <li class="list-group-item">เบอร์โทร: <span>{{ $profile[0]->tel }}</span></li>
+                        <li class="list-group-item">อีเมล: <span>{{ $profile[0]->email }}</span></li>
+                        {{-- <li class="list-group-item">ระดับสมาชิก: <span>{{ $profile[0]->leveltype }}</span>
+                            <li class="list-group-item">vbv<span>{{ $profile[0]->status }}</span>
+                        </li> --}}
+                        <li class="list-group-item">
+                            ระดับสมาชิก: <div style="display: inline;">{{ $profile[0]->leveltype }}</div>
+                            <div style="display: inline;">({{ $profile[0]->status }})</div>
+                        </li>
+                        
+                        <li class="list-group-item">วันที่สมัคร: <span>{{ $profile[0]->date_order }}</span></li>
+                        <li class="list-group-item">วันหมดอายุ: <span>{{ $profile[0]->date_exp }}</span></li>
+                        <li class="list-group-item">หมายเหตุ: <span>{{ $profile[0]->note }}</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
 @endsection

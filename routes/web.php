@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\FirstPageController;
 use App\Http\Controllers\ClassTableController;
+use App\Http\Controllers\FirstPageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReserveController;
 use Illuminate\Support\Facades\Route;
@@ -26,9 +26,9 @@ Route::get('/', function () {
 Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-
+Route::get('/profilepage', [ProfileController::class, 'testGet']);
 Route::get('/classtable', [ClassTableController::class, 'classtable'])->name('classtable.classtable');
 
 Route::get('/FirstPage', [FirstPageController::class, 'FirstPage'])->name('FirstPage');
 
-Route::get('/classex',[FirstPageController::class, 'testGet']);
+Route::get('/classex', [FirstPageController::class, 'testGet']);
