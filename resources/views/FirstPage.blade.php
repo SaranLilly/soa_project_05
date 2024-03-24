@@ -24,15 +24,16 @@
           </tr>
         </thead>
         <tbody>
-           @foreach($ClassExercise as $cex){
+           @foreach($ClassExercise as $cex)
             
             <tr> 
-              <th>{{"ใส่รูปยังไง"}}</th>
+              <th ><img width="180" height="180"src="{{ asset('assets/images/' . $cex->picture) }}"></th>
+              {{-- <th >{{$cex->picture}}</th> --}}
                <th>{{ $cex->name}}</th>
               <th>{{ $cex->detailClass}}</th>
           </tr> 
          
-          }
+          
           @endforeach 
             {{-- @for ($i = 0; $i < 3; $i++)
             <tr> --}}

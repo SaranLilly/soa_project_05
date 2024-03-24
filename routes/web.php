@@ -31,4 +31,5 @@ Route::get('/classtable', [ClassTableController::class, 'classtable'])->name('cl
 
 Route::get('/FirstPage', [FirstPageController::class, 'FirstPage'])->name('FirstPage');
 
-Route::get('/classex',[FirstPageController::class, 'testGet']);
+ Route::get('/homepage',[FirstPageController::class, 'testGet'])->name('homepage');
+// Route::get('/classex{picture}',[FirstPageController::class, 'testGet']);
