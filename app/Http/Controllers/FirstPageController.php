@@ -54,11 +54,9 @@ class FirstPageController extends Controller
     }   
     function testPost()
     {
-        $response = Http::post('http://localhost:8096/soa_project_5/rest/services/users', [
-            'name' => 'THar', 'surname' => 'sdfsdfsdf', "tel" => "6666666666",
-            "email" => "supitchgmail.com",
-            "password" => "poq11xxxx",
-            "role" => "adminxxxx"
+        $response = Http::post('http://localhost:8080/soa_project_5/rest/services/classex', [
+            'name' => 'rushing',
+            "detailClass" => "1212",
         ]);
         // dd($response->object());
     }
@@ -66,16 +64,15 @@ class FirstPageController extends Controller
     {
 
         $id = 29;
-        $response = Http::delete('http://localhost:8096/soa_project_5/rest/services/users/' . (string)$id);
+        $response = Http::delete('http://localhost:8096/soa_project_5/rest/services/classex/' . (string)$id);
         dd($response->body());
     }
     function testPut()
     {
-        $response = Http::put('http://localhost:8096/soa_project_5/rest/services/users/28', [
-            'name' => 'THar', 'surname' => 'sdfsdfsdf', "tel" => "6666666666",
-            "email" => "supitchgmail.com",
-            "password" => "poq11xxxx",
-            "role" => "aasd"
+        $response = Http::put('http://localhost:8096/soa_project_5/rest/services/classex/28', [
+            'name' => 'Rusher',
+            "detailClass" => "s434"
+
         ]);
         dd($response->object());
     }
