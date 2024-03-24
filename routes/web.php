@@ -28,7 +28,15 @@ Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('/profilepage', [ProfileController::class, 'testGet']);
 Route::get('/classtable', [ClassTableController::class, 'classtable'])->name('classtable.classtable');
+Route::get('/classTestpost', [ClassTableController::class, 'testPost'])->name('testPost');
+Route::get('/classTestdelete', [ClassTableController::class, 'testDelete'])->name('testDelete');
+Route::get('/classTestput', [ClassTableController::class, 'testPut'])->name('testPut');
 
 Route::get('/FirstPage', [FirstPageController::class, 'FirstPage'])->name('FirstPage');
 
+<<<<<<< HEAD
 Route::get('/classex', [FirstPageController::class, 'testGet']);
+=======
+ Route::get('/homepage',[FirstPageController::class, 'testGet'])->name('homepage');
+// Route::get('/classex{picture}',[FirstPageController::class, 'testGet']);
+>>>>>>> 40c4263106c637d88137c44c297044ccea2183b7
