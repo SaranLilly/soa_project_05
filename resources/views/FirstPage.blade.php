@@ -27,7 +27,7 @@
             @for ($i = 0; $i < 3; $i++)
             <tr>
                 {{-- @if ($i == 1) --}}
-                <th><img width="100" height="100" src="data:image/png;base64,{{ base64_encode($picture[$i]) }}" alt="Pixel Image"></th>
+                {{-- <th><img width="100" height="100" src="data:image/png;base64,{{ base64_encode($picture[$i]) }}" alt="Pixel Image"></th> --}}
                 {{-- @elseif ($i == 2)
                 <th><img src="data:image/png;base64,{{ base64_encode($picture1) }}" alt="Pixel Image"></th>
                 @else

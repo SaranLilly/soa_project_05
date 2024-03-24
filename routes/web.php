@@ -30,3 +30,5 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index
 Route::get('/classtable', [ClassTableController::class, 'classtable'])->name('classtable.classtable');
 
 Route::get('/FirstPage', [FirstPageController::class, 'FirstPage'])->name('FirstPage');
+
+Route::get('/classex',[FirstPageController::class, 'testGet']);

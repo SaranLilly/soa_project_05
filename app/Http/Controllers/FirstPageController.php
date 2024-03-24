@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class FirstPageController extends Controller
 {
@@ -36,5 +37,46 @@ class FirstPageController extends Controller
         
         return view('FirstPage',['title'=>$title,'detail'=>$detail,'picture'=>$picture]);
         //return view('FirstPage',['title'=>$title,'detail'=>$detail,'picture'=>$picture,'picture1'=>$picture1,'picture2'=>$picture2]);
+    }
+
+    function testGet()
+    {
+        $response = Http::get('http://localhost:8080/soa_project_5/rest/services/classex');
+
+        $ClassExercise = $response->object();
+         //dd($ClassExercise);
+        // dd(gettype($userList));
+        // dd($userList); 
+        // foreach($userList as $user){
+        //     echo  $user->name."  ".$user->tel."<br>";
+        // }
+        return view('FirstPage',compact('ClassExercise'));
+    }
+    function testPost()
+    {
+        $response = Http::post('http://localhost:8096/soa_project_5/rest/services/users', [
+            'name' => 'THar', 'surname' => 'sdfsdfsdf', "tel" => "6666666666",
+            "email" => "supitchgmail.com",
+            "password" => "poq11xxxx",
+            "role" => "adminxxxx"
+        ]);
+        // dd($response->object());
+    }
+    function testDelete()
+    {
+
+        $id = 29;
+        $response = Http::delete('http://localhost:8096/soa_project_5/rest/services/users/' . (string)$id);
+        dd($response->body());
+    }
+    function testPut()
+    {
+        $response = Http::put('http://localhost:8096/soa_project_5/rest/services/users/28', [
+            'name' => 'THar', 'surname' => 'sdfsdfsdf', "tel" => "6666666666",
+            "email" => "supitchgmail.com",
+            "password" => "poq11xxxx",
+            "role" => "aasd"
+        ]);
+        dd($response->object());
     }
 }
