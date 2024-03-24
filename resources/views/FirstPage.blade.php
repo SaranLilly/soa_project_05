@@ -24,10 +24,16 @@
           </tr>
         </thead>
         <tbody>
-          {{-- @foreach($ClassExercise as $cex){
-            {{ $cex->name "<br>";}}
+           @foreach($ClassExercise as $cex){
+            
+            <tr> 
+              <th>{{"ใส่รูปยังไง"}}</th>
+               <th>{{ $cex->name}}</th>
+              <th>{{ $cex->detailClass}}</th>
+          </tr> 
+         
           }
-          @endforeach --}}
+          @endforeach 
             {{-- @for ($i = 0; $i < 3; $i++)
             <tr> --}}
                 {{-- @if ($i == 1) --}}

@@ -47,10 +47,10 @@ class FirstPageController extends Controller
          //dd($ClassExercise);
         // dd(gettype($userList));
         // dd($userList); 
-          foreach($ClassExercise as $classex){
-            echo  $classex->name."  ".$classex->detail."<br>";
-         }
-        //return view('FirstPage',compact('ClassExercise'));
+        //   foreach($ClassExercise as $classex){
+        //     echo  $classex->name."  ".$classex->detailClass."<br>";
+        //  }
+        return view('FirstPage',compact('ClassExercise'));
     }   
     function testPost()
     {
