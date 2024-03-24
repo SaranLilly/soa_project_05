@@ -28,6 +28,9 @@ Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 
 Route::get('/classtable', [ClassTableController::class, 'classtable'])->name('classtable.classtable');
+Route::get('/classTestpost', [ClassTableController::class, 'testPost'])->name('testPost');
+Route::get('/classTestdelete', [ClassTableController::class, 'testDelete'])->name('testDelete');
+Route::get('/classTestput', [ClassTableController::class, 'testPut'])->name('testPut');
 
 Route::get('/FirstPage', [FirstPageController::class, 'FirstPage'])->name('FirstPage');
 

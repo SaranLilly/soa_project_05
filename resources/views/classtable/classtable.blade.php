@@ -12,21 +12,84 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <title>ClassTable</title>
+    <style>
+      .calendar {
+          width: 300px;
+          margin: 0 auto;
+      }
+      .calendar table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      .calendar th, .calendar td {
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: center;
+      }
+      .selected {
+          background-color: #ffffcc;
+      }
+  </style>
 </head>
 <body>
-    <table class="date">
-        <thead>
-          <tr>
-            <td><a button type='button' class='btn btn-secondary' href="">จันทร์</a></td>
-            <td><a button type='button' class='btn btn-secondary' href="">อังคาร</a></td>
-            <td><a button type='button' class='btn btn-secondary' href="">พุธ</a></td>
-            <td><a button type='button' class='btn btn-secondary' href="">พฤหัสบดี</a></td>
-            <td><a button type='button' class='btn btn-secondary' href="">ศุกร์</a></td>
-            <td><a button type='button' class='btn btn-secondary' href="">เสาร์</a></td>
-            <td><a button type='button' class='btn btn-secondary' href="">อาทิตย์</a></td>
-          </tr>
-        </thead>
-      </table>
+  <div class="calendar">
+    <?php
+    // กำหนดวันที่เริ่มต้นและสิ้นสุดของเดือน
+    $currentMonth = date('m');
+    $currentYear = date('Y');
+    $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $currentMonth, $currentYear);
+
+    // ตั้งค่าโซนเวลา
+    date_default_timezone_set('Asia/Bangkok');
+
+    // วันที่ปัจจุบัน
+    $currentDay = date('d');
+
+    // สร้างปฎิทิน
+    echo '<table>';
+    echo '<tr><th>จันทร์</th><th>อังคาร</th><th>พุธ</th><th>พฤหัสบดี</th><th>ศุกร์</th><th>เสาร์</th><th>อาทิตย์</th></tr>';
+    echo '<tr>';
+
+    // หาวันแรกของเดือน
+    $firstDayOfMonth = date('N', strtotime("$currentYear-$currentMonth-01"));
+
+    // เพิ่มช่องว่างถ้าจำเป็น
+    for ($i = 1; $i < $firstDayOfMonth; $i++) {
+        echo '<td></td>';
+    }
+
+    // เริ่มวันที่และวันเสาร์
+    for ($day = 1; $day <= $daysInMonth; $day++) {
+        if ($day == $currentDay) {
+            echo '<td class="selected">' . $day . '</td>';
+        } else {
+            // เพิ่มการตรวจสอบเพื่อให้วันที่ผ่านมาไม่สามารถคลิกได้
+            if ($day >= $currentDay) {
+                echo '<td><a href="?day=' . $day . '">' . $day . '</a></td>';
+            } else {
+                echo '<td>' . $day . '</td>';
+            }
+        }
+        if (date('N', strtotime("$currentYear-$currentMonth-$day")) == 7) {
+            echo '</tr>';
+            if ($day < $daysInMonth) {
+                echo '<tr>';
+            }
+        }
+    }
+
+    // เพิ่มช่องว่างถ้าจำเป็น
+    for ($i = date('N', strtotime("$currentYear-$currentMonth-$daysInMonth")) + 1; $i <= 7; $i++) {
+        echo '<td></td>';
+    }
+
+    echo '</tr>';
+    echo '</table>';
+    ?>
+</div>
+
+
+
 
     <table class="table">
         <thead>
