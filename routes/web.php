@@ -24,6 +24,9 @@ Route::get('/', function () {
     return view('layout');
 })->name('layout');
 Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
+Route::delete('/reserve', [ReserveController::class, 'delete'])->name('reserve.delete');
+
+
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('/profilepage', [ProfileController::class, 'testGet']);
