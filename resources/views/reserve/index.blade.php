@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'จอง')
+
 @section('content')
     <table class="table">
         <thead>
@@ -25,7 +25,8 @@
                   <input type="submit" value="{{$item->status}}" class="btn btn-danger">
               </form>
             </td>
-          </tr>  
+          </tr> 
+          @endforeach 
         </tbody>
       </table>
 @endsection
