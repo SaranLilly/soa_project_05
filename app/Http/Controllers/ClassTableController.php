@@ -19,11 +19,14 @@ class ClassTableController extends Controller
         $timeE = ["10:30:00","13:30:00"];
         $class = ["กังฟูไฟติ้ง","เป่า ยิง ฉุข"];
         $trainer = ["ใคร","ไม่รู้"];
+        $date = ["29-03-2024","30-03-2024"];
 
        return view('classtable.classtable',['timeS'=>$timeS
                                         ,'timeE'=>$timeE
                                         ,'class'=>$class
-                                        ,'trainer'=>$trainer],compact('userList')); 
+                                        ,'trainer'=>$trainer
+                                        ,'date'=>$date
+                                    ],compact('userList')); 
     }
 
     function testGet()
