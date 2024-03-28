@@ -28,6 +28,11 @@ Route::get('/', function () {
 })->name('layout');
 Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
 Route::delete('/reserve', [ReserveController::class, 'delete'])->name('reserve.delete');
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f6c7642afb9dc75607807acc50db419d8de2c1ed
 
 // Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/profilepage', [ProfileController::class, 'testGet'])->name('profile.index');
@@ -40,6 +45,7 @@ Route::get('/FirstPage', [FirstPageController::class, 'FirstPage'])->name('First
 
 Route::get('/classex', [FirstPageController::class, 'testGet']);
 
+<<<<<<< HEAD
 Route::get('/homepage', [FirstPageController::class, 'testGet'])->name('homepage');
 // Route::get('/classex{picture}',[FirstPageController::class, 'testGet']);
 
@@ -54,3 +60,17 @@ Route::get('/login', [LoginController::class, 'index'])->name('login.listofname'
 // Route::get('/employee/{employee}/edit', [EmployeeController::class, 'edit'])->name('employee.edit');
 // Route::put('/employee/{employee}/update', [EmployeeController::class, 'update'])->name('employee.update');
 // Route::delete('/employee/{employee}/destroy', [EmployeeController::class, 'destroy'])->name('employee.destroy');
+=======
+ Route::get('/homepage',[FirstPageController::class, 'testGet'])->name('homepage');
+// Route::get('/classex{picture}',[FirstPageController::class, 'testGet']);
+
+
+
+Route::get('/regisLevel', [RegisLevelController::class, 'regisLevel'])->name('regisLevel');
+
+
+Route::post('/addOrderLevel', [RegisLevelController::class, 'addOrderLevel'])->name('addOrderLevel');
+
+
+
+>>>>>>> f6c7642afb9dc75607807acc50db419d8de2c1ed

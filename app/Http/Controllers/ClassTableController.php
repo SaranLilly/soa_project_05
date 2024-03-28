@@ -15,6 +15,7 @@ class ClassTableController extends Controller
 
         $userList = $response->object();
 
+<<<<<<< HEAD
         $timeS = ["09:00:00", "12:00:00"];
         $timeE = ["10:30:00", "13:30:00"];
         $class = ["กังฟูไฟติ้ง", "เป่า ยิง ฉุข"];
@@ -24,6 +25,20 @@ class ClassTableController extends Controller
             , 'timeE' => $timeE
             , 'class' => $class
             , 'trainer' => $trainer], compact('userList'));
+=======
+        $timeS = ["09:00:00","12:00:00"];
+        $timeE = ["10:30:00","13:30:00"];
+        $class = ["กังฟูไฟติ้ง","เป่า ยิง ฉุข"];
+        $trainer = ["ใคร","ไม่รู้"];
+        $date = ["29-03-2024","30-03-2024"];
+
+       return view('classtable.classtable',['timeS'=>$timeS
+                                        ,'timeE'=>$timeE
+                                        ,'class'=>$class
+                                        ,'trainer'=>$trainer
+                                        ,'date'=>$date
+                                    ],compact('userList')); 
+>>>>>>> f6c7642afb9dc75607807acc50db419d8de2c1ed
     }
 
     public function testGet()
