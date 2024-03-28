@@ -42,3 +42,12 @@ Route::get('/classex', [FirstPageController::class, 'testGet']);
  Route::get('/homepage',[FirstPageController::class, 'testGet'])->name('homepage');
 // Route::get('/classex{picture}',[FirstPageController::class, 'testGet']);
 
+
+
+Route::get('/regisLevel', [RegisLevelController::class, 'regisLevel'])->name('regisLevel');
+
+
+Route::post('/addOrderLevel', [RegisLevelController::class, 'addOrderLevel'])->name('addOrderLevel');
+
+
+
