@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'จอง')
+
 @section('content')
     <table class="table">
         <thead>
@@ -12,15 +12,21 @@
           </tr>
         </thead>
         <tbody>
-            @for ($i = 0; $i < 2; $i++)
-            <tr>
-                <td>{{ $date[$i]}}</td>
-                <td>{{ $time[$i]}}</td>
-                <td>{{ $class[$i]}}</td>
-                <td>{{ $teacher[$i]}}</td>
-                <td><a button type='button' class='btn btn-secondary' href="">{{ $status[$i]}}</a></td>
-            </tr> 
-            @endfor     
+          @foreach ($reserveList as $item)
+          <tr>
+            <td>{{ $item->date}}</td>
+            <td>{{ $item->time}}</td>
+            <td>{{ $item->class}}</td>
+            <td>{{ $item->name}}</td>
+            <td>
+              <form method="POST" action="{{route('reserve.delete',['reserveList'=> $item->id]) }}">
+                  @csrf
+                  @method('delete')
+                  <input type="submit" value="{{$item->status}}" class="btn btn-danger">
+              </form>
+            </td>
+          </tr> 
+          @endforeach 
         </tbody>
       </table>
 @endsection

@@ -4,23 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 
 class ReserveController extends Controller
 {
-    
 
-    public function index():View{
-
-        $date = ["2024-03-25","2024-03-30"];
-        $time = ["13:00:00","12:00:00"];
-        $class = ["Boxing","Bodycombat"];
-        $teacher = ["บิ๊กโช","ต่า"];
-        $status = ["จอง","ยกเลิก"];
-
-       return view('reserve.index',['teacher'=>$teacher,'class'=>$class,'date'=>$date,
-       'time'=>$time,'status'=>$status]); 
+    public function index(): View
+    {
+        $response = Http::get('http://localhost:8100/soa_project_5/rest/services/reserves');
+        $reserveList = $response->object();
+        //dd($reserveList);
+        return view('reserve.index', ['reserveList' => $reserveList]);
     }
 
-    
+    public function delete(Request $request)
+    {
+        //dd($request->reserveList);
+        $response = Http::delete('http://localhost:8100/soa_project_5/rest/services/reserves/' . $request->reserveList);
+        return redirect(route('reserve.index'));
+    }
+
 }

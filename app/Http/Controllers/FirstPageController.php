@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Intervention\Image\Facades\Image;
-
-use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\View\View;
 
 class FirstPageController extends Controller
 {
@@ -32,30 +29,30 @@ class FirstPageController extends Controller
     //         public_path('\assets\images\cena.png'),
     //         public_path('\assets\images\ku.png')
     //     ];
-        
+
     //     $picture = [];
     //     foreach ($imagePaths as $path) {
     //         $picture[] = file_get_contents($path);
     //     }
-        
+
     //     return view('FirstPage',['title'=>$title,'detail'=>$detail,'picture'=>$picture]);
     //     //return view('FirstPage',['title'=>$title,'detail'=>$detail,'picture'=>$picture,'picture1'=>$picture1,'picture2'=>$picture2]);
     // }
 
-    function testGet()
+    public function testGet()
     {
-        $response = Http::get('http://localhost:8081/soa_project_5/rest/services/homepage');
+        $response = Http::get('http://localhost:8100/soa_project_5/rest/services/homepage');
 
         $ClassExercise = $response->object();
-         //dd($ClassExercise);
+        //dd($ClassExercise);
         // dd(gettype($userList));
-        // dd($userList); 
+        // dd($userList);
         //   foreach($ClassExercise as $classex){
         //     echo  $classex->name."  ".$classex->detailClass."<br>";
         //  }
-        return view('FirstPage',compact('ClassExercise'));
-    }   
-    function testPost()
+        return view('FirstPage', compact('ClassExercise'));
+    }
+    public function testPost()
     {
         $response = Http::post('http://localhost:8080/soa_project_5/rest/services/classex', [
             'name' => 'rushing',
@@ -63,18 +60,18 @@ class FirstPageController extends Controller
         ]);
         // dd($response->object());
     }
-    function testDelete()
+    public function testDelete()
     {
 
         $id = 29;
-        $response = Http::delete('http://localhost:8096/soa_project_5/rest/services/classex/' . (string)$id);
+        $response = Http::delete('http://localhost:8096/soa_project_5/rest/services/classex/' . (string) $id);
         dd($response->body());
     }
-    function testPut()
+    public function testPut()
     {
         $response = Http::put('http://localhost:8096/soa_project_5/rest/services/classex/28', [
             'name' => 'Rusher',
-            "detailClass" => "s434"
+            "detailClass" => "s434",
 
         ]);
         dd($response->object());

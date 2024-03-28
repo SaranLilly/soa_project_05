@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ClassTableController;
 use App\Http\Controllers\FirstPageController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisController;
 use App\Http\Controllers\ReserveController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,13 +22,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/', function () {
     return view('layout');
 })->name('layout');
 Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
+Route::delete('/reserve', [ReserveController::class, 'delete'])->name('reserve.delete');
 
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-Route::get('/profilepage', [ProfileController::class, 'testGet']);
+// Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/profilepage', [ProfileController::class, 'testGet'])->name('profile.index');
 Route::get('/classtable', [ClassTableController::class, 'classtable'])->name('classtable.classtable');
 Route::get('/classTestpost', [ClassTableController::class, 'testPost'])->name('testPost');
 Route::get('/classTestdelete', [ClassTableController::class, 'testDelete'])->name('testDelete');
@@ -34,9 +38,19 @@ Route::get('/classTestput', [ClassTableController::class, 'testPut'])->name('tes
 
 Route::get('/FirstPage', [FirstPageController::class, 'FirstPage'])->name('FirstPage');
 
-<<<<<<< HEAD
 Route::get('/classex', [FirstPageController::class, 'testGet']);
-=======
- Route::get('/homepage',[FirstPageController::class, 'testGet'])->name('homepage');
+
+Route::get('/homepage', [FirstPageController::class, 'testGet'])->name('homepage');
 // Route::get('/classex{picture}',[FirstPageController::class, 'testGet']);
->>>>>>> 40c4263106c637d88137c44c297044ccea2183b7
+
+Route::get('/regis', [RegisController::class, 'index'])->name('regis.index');
+Route::post('/regis/create', [RegisController::class, 'listofname'])->name('regis.listofname');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login.listofname');
+// Route::get('/', [LoginController::class, 'index'])->name('login.listofname');
+// Route::get('/employee', [EmployeeController::class, 'index'])->name('employee.index');
+// Route::get('/employee/create', [EmployeeController::class, 'create'])->name('employee.create');
+// Route::post('/employee', [EmployeeController::class, 'listofname'])->name('employee.listofname');
+// Route::get('/employee/{employee}/edit', [EmployeeController::class, 'edit'])->name('employee.edit');
+// Route::put('/employee/{employee}/update', [EmployeeController::class, 'update'])->name('employee.update');
+// Route::delete('/employee/{employee}/destroy', [EmployeeController::class, 'destroy'])->name('employee.destroy');

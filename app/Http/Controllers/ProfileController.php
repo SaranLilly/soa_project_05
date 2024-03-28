@@ -37,11 +37,12 @@ class ProfileController extends Controller
     // }
     public function testGet()
     {
-        $response = Http::get('http://localhost:8087/soa_project_5/rest/services/profiles/getProfile');
+        $response = Http::get('http://localhost:8100/soa_project_5/rest/services/profiles/getProfile');
 
         $profile = $response->object();
-        // dd($profile);
+        //dd($profile);
         return view('profile.index', compact('profile'));
+
     }
 
     public function testPost()
